@@ -2,9 +2,11 @@
 
 namespace GAubry\Enum;
 
+/**
+ * @method static type name() desc
+ */
 class Intervals extends EnumAbstract
 {
-
     /**
     * Intervalle calendaire de type année.
     */

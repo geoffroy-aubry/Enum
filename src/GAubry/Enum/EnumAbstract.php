@@ -29,35 +29,30 @@ abstract class EnumAbstract
         $this->sName = $sName;
     }
 
-    private static function buildInstances ()
+    public static function buildInstances ()
     {
         $sClass = get_called_class();
-        $oReflected = new \ReflectionClass($sClass);
-        foreach ($oReflected->getStaticProperties() as $sKey => $mValue) {
-            $sName = (empty($mValue) ? $sKey : (string)$mValue);
-            $oReflected->setStaticPropertyValue($sKey, new static($sName));
+        if (empty(self::$aCache[$sClass])) {
+            if ($sClass == get_class()) {
+                $sMsg = 'Method for only purpose of inherited classes!';
+                throw new \BadMethodCallException($sMsg, 1);
+            } else {
+                $oReflected = new \ReflectionClass($sClass);
+                foreach ($oReflected->getStaticProperties() as $sKey => $mValue) {
+                    $sName = (empty($mValue) ? $sKey : (string)$mValue);
+                    $oReflected->setStaticPropertyValue($sKey, new static($sName));
+                }
+                self::$aCache[$sClass] = $oReflected->getStaticProperties();
+            }
         }
-        self::$aCache[$sClass] = $oReflected->getStaticProperties();
+        return $sClass;
     }
 
     public static function values()
     {
-        $sClass = get_called_class();
-        if (empty(self::$aCache[$sClass])) {
-            static::buildInstances();
-        }
+        $sClass = self::buildInstances();
         return self::$aCache[$sClass];
     }
-
-    /**
-     * The day *monday*.
-     *
-     * @return DayEnum The day *monday*.
-     */
-//     final public static function MONDAY()
-//     {
-//         return self::getInstance();
-//     }
 
     /**
      * Returns the names (or keys) of all of constants in the enum
@@ -66,7 +61,18 @@ abstract class EnumAbstract
      */
     public static function keys()
     {
-        return array_keys(static::values());
+        return array_keys(self::values());
+    }
+
+    public static function __callStatic ($sName, $aArgs)
+    {
+        $sClass = self::buildInstances();
+        if (! isset(self::$aCache[$sClass][$sName])) {
+            $sMsg = "Unknown type '$sName'! Type must be in: "
+                  . implode(', ', array_keys(self::$aCache[$sClass])) . '.';
+            throw new \DomainException($sMsg, 1);
+        }
+        return self::$aCache[$sClass][$sName];
     }
 
     /**
