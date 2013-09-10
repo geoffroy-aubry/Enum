@@ -225,7 +225,4 @@ class EnumAbstractTest extends \PHPUnit_Framework_TestCase
             $this->assertTrue((string)DayEnum::$sDay() === ($mValue === null ? $sDay : (string)$mValue));
         }
     }
-
-    // TODO inherit concreteEnum
-    // TODO from… to
 }
