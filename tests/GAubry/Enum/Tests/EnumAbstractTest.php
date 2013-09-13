@@ -225,4 +225,14 @@ class EnumAbstractTest extends \PHPUnit_Framework_TestCase
             $this->assertTrue((string)DayEnum::$sDay() === ($mValue === null ? $sDay : (string)$mValue));
         }
     }
+
+    /**
+     * @covers \GAubry\Enum\EnumAbstract::__clone
+     */
+    public function testClone ()
+    {
+        $this->setExpectedException('\\RuntimeException', 'Cloning of this object isn\'t authorized!');
+        DayEnum::buildInstances();
+        clone(DayEnum::$MONDAY);
+    }
 }

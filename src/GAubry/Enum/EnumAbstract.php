@@ -138,4 +138,14 @@ abstract class EnumAbstract
     {
         return $this->sName;
     }
+
+    /**
+     * Prevent cloning.
+     *
+     * @throws \RuntimeException Cloning of this object isn't authorized!
+     */
+    final public function __clone()
+    {
+        throw new \RuntimeException('Cloning of this object isn\'t authorized!');
+    }
 }
