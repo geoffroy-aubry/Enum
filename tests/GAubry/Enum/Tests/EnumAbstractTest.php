@@ -201,7 +201,7 @@ class EnumAbstractTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException(
             '\\DomainException',
             "Unknown type 'NOTDEFINED'!"
-                . ' Type must be in: MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY.'
+            . ' Type must be in: MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY.'
         );
         DayEnum::NOTDEFINED();
     }

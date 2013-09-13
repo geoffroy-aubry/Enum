@@ -3,6 +3,12 @@
 namespace GAubry\Enum;
 
 /**
+ * Enum abstract class and generator.
+ *
+ * Typical usage:
+ * TODO ?
+ * <code>…</code>
+ *
  *
  * Copyright (c) 2013 Geoffroy Aubry <geoffroy.aubry@free.fr>
  * Licensed under the GNU Lesser General Public License v3 (LGPL version 3).
@@ -52,7 +58,8 @@ abstract class EnumAbstract
      *
      * @param string $sName Name of instance, used by __toString().
      */
-    protected function __construct ($sName) {
+    protected function __construct ($sName)
+    {
         $this->iValue = self::$iCounter++;
         $this->sName = $sName;
     }
@@ -109,6 +116,7 @@ abstract class EnumAbstract
      * Get enum instances with lazy instanciation.
      * Triggered when invoking inaccessible methods in a static context.
      *
+     * @SuppressWarnings(UnusedFormalParameter)
      * @param string $sName name of the static property
      * @param array  $aArgs not used…
      * @throws \DomainException if not called on one of the static properties

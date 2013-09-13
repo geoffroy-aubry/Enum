@@ -1,5 +1,7 @@
 # PHP Enum
 
+`EnumAbstract` gives the ability to emulate and create type-safe enumerations in PHP.
+
 ## Description
 
 ### Demo
@@ -41,6 +43,29 @@ See [LICENSE](LICENSE) file for details.
 ## Change log
 
 ## Continuous integration
+
+[![Build Status](https://secure.travis-ci.org/geoffroy-aubry/Enum.png?branch=stable)](http://travis-ci.org/geoffroy-aubry/Enum)
+[![Coverage Status](https://coveralls.io/repos/geoffroy-aubry/Enum/badge.png?branch=stable)](https://coveralls.io/r/geoffroy-aubry/Enum)
+
+Following commands are executed during each build and must report neither errors nor warnings:
+
+ * Unit tests with [PHPUnit](https://github.com/sebastianbergmann/phpunit/):
+
+    ```bash
+    $ php vendor/bin/phpunit --configuration phpunit.xml
+    ```
+
+ *  Coding standards with [PHP CodeSniffer](http://pear.php.net/package/PHP_CodeSniffer):
+
+    ```bash
+    $ php vendor/bin/phpcs --standard=PSR2 src/ tests/ -v
+    ```
+
+ *  Code quality with [PHP Mess Detector](http://phpmd.org/):
+
+    ```bash
+    $ php vendor/bin/phpmd src/ text codesize,design,unusedcode,naming,controversial
+    ```
 
 ## Git branching model
 The git branching model used for development is the one described and assisted by `twgit` tool: [https://github.com/Twenga/twgit](https://github.com/Twenga/twgit).
