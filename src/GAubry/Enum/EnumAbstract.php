@@ -13,6 +13,10 @@ namespace GAubry\Enum;
  */
 abstract class EnumAbstract
 {
+    /**
+     * Global static counter to ensure that each EnumAbstract instance is unique.
+     * @var int
+     */
     private static $iCounter = 0;
 
     /**
@@ -29,14 +33,36 @@ abstract class EnumAbstract
      */
     private static $aCache = array();
 
+    /**
+     * A unique value to ensure that each EnumAbstract instance is unique.
+     * @var int
+     * @see self::$iCounter
+     */
     private $iValue;
+
+    /**
+     * Name of enum instance, used by __toString().
+     * @var string
+     * @see __toString()
+     */
     private $sName;
 
+    /**
+     * Constructor.
+     *
+     * @param string $sName Name of instance, used by __toString().
+     */
     protected function __construct ($sName) {
         $this->iValue = self::$iCounter++;
         $this->sName = $sName;
     }
 
+    /**
+     * Converts all static properties into EnumAbstract instances.
+     *
+     * @throws \BadMethodCallException if called directly on EnumAbstract instead of derived class
+     * @return string
+     */
     public static function buildInstances ()
     {
         $sClass = get_called_class();
@@ -56,6 +82,12 @@ abstract class EnumAbstract
         return $sClass;
     }
 
+    /**
+     * Returns an associative array containing all constants in the enum.
+     *
+     * @throws \BadMethodCallException if called directly on EnumAbstract instead of derived class
+     * @return array Associative array (name => instance, …)
+     */
     public static function values()
     {
         $sClass = self::buildInstances();
@@ -63,15 +95,26 @@ abstract class EnumAbstract
     }
 
     /**
-     * Returns the names (or keys) of all of constants in the enum
+     * Returns the names (or keys) of all of constants in the enum.
      *
-     * @return array
+     * @throws \BadMethodCallException if called directly on EnumAbstract instead of derived class
+     * @return array Array of string
      */
     public static function keys()
     {
         return array_keys(self::values());
     }
 
+    /**
+     * Get enum instances with lazy instanciation.
+     * Triggered when invoking inaccessible methods in a static context.
+     *
+     * @param string $sName name of the static property
+     * @param array  $aArgs not used…
+     * @throws \DomainException if not called on one of the static properties
+     * @throws \BadMethodCallException if called directly on EnumAbstract instead of derived class
+     * @return EnumAbstract enum instance with the specified name
+     */
     public static function __callStatic ($sName, $aArgs)
     {
         $sClass = self::buildInstances();
@@ -84,12 +127,12 @@ abstract class EnumAbstract
     }
 
     /**
-     * bla…
+     * Returns the name of the instance.
      *
      * This magic method is used for setting a string value for the object.
      * It will be used if the object is used as a string.
      *
-     * @returns string representing the object
+     * @return string representing the object
      */
     public function __toString ()
     {
