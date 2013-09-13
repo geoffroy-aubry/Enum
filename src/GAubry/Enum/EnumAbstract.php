@@ -2,7 +2,15 @@
 
 namespace GAubry\Enum;
 
-// final class DayEnum extends EnumAbstract
+/**
+ *
+ * Copyright (c) 2013 Geoffroy Aubry <geoffroy.aubry@free.fr>
+ * Licensed under the GNU Lesser General Public License v3 (LGPL version 3).
+ *
+ * @see https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md
+ * @copyright 2013 Geoffroy Aubry <geoffroy.aubry@free.fr>
+ * @license http://www.gnu.org/licenses/lgpl.html
+ */
 abstract class EnumAbstract
 {
     private static $iCounter = 0;
