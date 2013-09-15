@@ -3,17 +3,42 @@
 namespace GAubry\Enum;
 
 /**
- * Enum abstract class and generator.
+ * A simple-to-use PHP class that provides the ability to emulate and create type-safe enumerations.
  *
- * Typical usage:
- * TODO ?
- * <code>…</code>
+ * Definition:
+ * <code>
+ *     class ColorEnum extends EnumAbstract {
+ *         public static $RED;
+ *         public static $GREEN;
+ *         public static $BLUE;
+ *     }
+ * </code>
+ *
+ * Usage:
+ * <code>
+ *     // One call per enumeration is necessary and sufficient,
+ *     // typically at the top of the program, during instantiation phase:
+ *     ColorEnum::buildInstances();
+ *
+ *     $color = ColorEnum::$RED;
+ *     var_dump((string)$color); // string(3) "RED"
+ *     var_dump(ColorEnum::$RED === ColorEnum::RED()); // true
+ *
+ *     function f (ColorEnum $color) {
+ *         switch($color) {
+ *             case ColorEnum::$RED:
+ *             …
+ *         }
+ *         …
+ *     }
+ *     f(ColorEnum::$RED);
+ * </code>
+ *
  *
  *
  * Copyright (c) 2013 Geoffroy Aubry <geoffroy.aubry@free.fr>
  * Licensed under the GNU Lesser General Public License v3 (LGPL version 3).
  *
- * @see https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-3-logger-interface.md
  * @copyright 2013 Geoffroy Aubry <geoffroy.aubry@free.fr>
  * @license http://www.gnu.org/licenses/lgpl.html
  */
@@ -27,13 +52,13 @@ abstract class EnumAbstract
 
     /**
      * A cache of all enum values to increase performance.
-     * Structure: array(
+     * Structure: <code>array(
      *     'class' => array(
      *         'key' => EnumAbstract instance,
      *         …
      *     ),
      *     …
-     * )
+     * )</code>
      *
      * @var array
      */
