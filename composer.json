@@ -1,7 +1,7 @@
 {
     "name":         "geoffroy-aubry/enum",
-    "description":  "…",
-    "keywords":     ["enum", "…"],
+    "description":  "A simple-to-use PHP class that provides the ability to emulate and create type-safe enumerations.",
+    "keywords":     ["enumeration", "enum", "type-safe enum"],
     "type":         "library",
     "license":      "LGPL-3.0+",
     "authors":      [
