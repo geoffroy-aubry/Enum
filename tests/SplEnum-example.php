@@ -18,6 +18,8 @@
  * @license http://www.gnu.org/licenses/lgpl.html
  */
 
+// @codingStandardsIgnoreFile
+
 class Month extends SplEnum
 {
     const JANUARY  = 1;

@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Copyright (c) 2013 Geoffroy Aubry <geoffroy.aubry@free.fr>
+ * Licensed under the GNU Lesser General Public License v3 (LGPL version 3).
+ *
+ * @copyright 2013 Geoffroy Aubry <geoffroy.aubry@free.fr>
+ * @license http://www.gnu.org/licenses/lgpl.html
+ */
+
 use GAubry\Enum\Mocks\DayEnum;
 use GAubry\Enum\Mocks\Days;
 
