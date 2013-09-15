@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="generator" content="ApiGen 2.8.0" />
+
+	<title>Class GAubry\Enum\EnumAbstract | Type-safe PHP Enum</title>
+
+	<script type="text/javascript" src="resources/combined.js?1034080224"></script>
+	<script type="text/javascript" src="elementlist.js?3421639422"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360" />
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li class="active"><a href="namespace-GAubry.html">GAubry<span></span></a>
+						<ul>
+				<li class="active main"><a href="namespace-GAubry.Enum.html">Enum</a>
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr />
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li class="active"><a href="class-GAubry.Enum.EnumAbstract.html">EnumAbstract</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="" />
+		<input type="hidden" name="ie" value="UTF-8" />
+		<input type="text" name="q" class="text" />
+		<input type="submit" value="Search" />
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-GAubry.Enum.html" title="Summary of GAubry\Enum"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+			<li>
+				<a href="deprecated.html" title="List of deprecated elements"><span>Deprecated</span></a>
+			</li>
+			<li>
+				<a href="todo.html" title="Todo list"><span>Todo</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class EnumAbstract</h1>
+
+
+	<div class="description">
+	
+<p>A simple-to-use PHP class that provides the ability to emulate and create
+type-safe enumerations.</p>
+
+<p>Definition:</p>
+
+<pre>
+<span class="php-keyword1">class</span> ColorEnum <span
+class="php-keyword1">extends</span> EnumAbstract {
+    <span
+class="php-keyword1">public</span> <span
+class="php-keyword1">static</span> <span class="php-var">$RED</span>;
+    <span
+class="php-keyword1">public</span> <span
+class="php-keyword1">static</span> <span
+class="php-var">$GREEN</span>;
+    <span
+class="php-keyword1">public</span> <span
+class="php-keyword1">static</span> <span class="php-var">$BLUE</span>;
+}
+</pre>
+
+<p>Usage:</p>
+
+<pre>
+<span
+class="php-comment">// One call per enumeration is necessary and sufficient,</span>
+<span
+class="php-comment">// typically at the top of the program, during instantiation phase:</span>
+ColorEnum::buildInstances();
+
+<span
+class="php-var">$color</span> = ColorEnum::<span
+class="php-var">$RED</span>;
+<span
+class="php-keyword2">var_dump</span>((string)<span
+class="php-var">$color</span>); <span
+class="php-comment">// string(3) &quot;RED&quot;</span>
+<span
+class="php-keyword2">var_dump</span>(ColorEnum::<span
+class="php-var">$RED</span> === ColorEnum::RED()); <span
+class="php-comment">// true</span>
+
+<span
+class="php-keyword1">function</span> f (ColorEnum <span
+class="php-var">$color</span>) {
+    <span
+class="php-keyword1">switch</span>(<span
+class="php-var">$color</span>) {
+        <span
+class="php-keyword1">case</span> ColorEnum::<span
+class="php-var">$RED</span>:
+        …
+    }
+    …
+}
+f(ColorEnum::<span
+class="php-var">$RED</span>);
+</pre>
+
+<p>Copyright (c) 2013 Geoffroy Aubry &lt;<a
+href="mailto:geoffroy.aubry&#64;free.fr">geoffroy.aubry&#64;<!-- -->free.fr</a>&gt;
+Licensed under the GNU Lesser General Public License v3 (LGPL version 3).</p>
+
+	</div>
+
+
+
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br />
+		
+		<b>Namespace:</b> <a href="namespace-GAubry.html">GAubry</a>\<a href="namespace-GAubry.Enum.html">Enum</a><br />
+		
+
+				<b>Copyright:</b>
+				2013 Geoffroy Aubry &lt;<a
+href="mailto:geoffroy.aubry&#64;free.fr">geoffroy.aubry&#64;<!-- -->free.fr</a>&gt;<br />
+				<b>License:</b>
+				<a href="http://www.gnu.org/licenses/lgpl.html">http://www.gnu.org/licenses/lgpl.html</a><br />
+		<b>Located at</b> <a href="source-class-GAubry.Enum.EnumAbstract.html#5-184" title="Go to source code">GAubry/Enum/EnumAbstract.php</a><br />
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 protected 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-GAubry.Enum.EnumAbstract.html#81-90" title="Go to source code">__construct</a>( <span>string <var>$sName</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Constructor.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Constructor.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$sName</var></dt>
+					<dd><code>string</code><br>$sName Name of instance, used by __toString().</dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="buildInstances" id="_buildInstances">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_buildInstances">#</a>
+		<code><a href="source-class-GAubry.Enum.EnumAbstract.html#92-115" title="Go to source code">buildInstances</a>( )</code>
+
+		<div class="description short">
+			
+<p>Converts all static properties into EnumAbstract instances.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Converts all static properties into EnumAbstract instances.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>BadMethodCallException</code><br>if called directly on EnumAbstract instead of derived class<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="values" id="_values">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_values">#</a>
+		<code><a href="source-class-GAubry.Enum.EnumAbstract.html#117-127" title="Go to source code">values</a>( )</code>
+
+		<div class="description short">
+			
+<p>Returns an associative array containing all constants in the enum.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns an associative array containing all constants in the enum.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>Associative array (name =&gt; instance, …)<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>BadMethodCallException</code><br>if called directly on EnumAbstract instead of derived class<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="keys" id="_keys">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_keys">#</a>
+		<code><a href="source-class-GAubry.Enum.EnumAbstract.html#129-138" title="Go to source code">keys</a>( )</code>
+
+		<div class="description short">
+			
+<p>Returns the names (or keys) of all of constants in the enum.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the names (or keys) of all of constants in the enum.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>Array of string<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>BadMethodCallException</code><br>if called directly on EnumAbstract instead of derived class<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__callStatic" id="___callStatic">
+
+		<td class="attributes"><code>
+			 public static
+			<code><a href="class-GAubry.Enum.EnumAbstract.html">GAubry\Enum\EnumAbstract</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___callStatic">#</a>
+		<code><a href="source-class-GAubry.Enum.EnumAbstract.html#140-160" title="Go to source code">__callStatic</a>( <span>string <var>$sName</var></span>, <span>array <var>$aArgs</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Get enum instances with lazy instanciation. Triggered when invoking
+inaccessible methods in a static context.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Get enum instances with lazy instanciation. Triggered when invoking
+inaccessible methods in a static context.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$sName</var></dt>
+					<dd><code>string</code><br>$sName name of the static property</dd>
+					<dt><var>$aArgs</var></dt>
+					<dd><code>array</code><br>$aArgs not used…</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><code><a href="class-GAubry.Enum.EnumAbstract.html">GAubry\Enum\EnumAbstract</a></code></code><br>enum instance with the specified name<br />
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>DomainException</code><br>if not called on one of the static properties<br />
+					<code>BadMethodCallException</code><br>if called directly on EnumAbstract instead of derived class<br />
+				</div>
+
+				<h4>SuppressWarnings(UnusedFormalParameter)</h4>
+				<div class="list">
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__toString" id="___toString">
+
+		<td class="attributes"><code>
+			 public 
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___toString">#</a>
+		<code><a href="source-class-GAubry.Enum.EnumAbstract.html#162-173" title="Go to source code">__toString</a>( )</code>
+
+		<div class="description short">
+			
+<p>Returns the name of the instance.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Returns the name of the instance.</p>
+
+<p>This magic method is used for setting a string value for the object. It will
+be used if the object is used as a string.</p>
+
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>representing the object<br />
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__clone" id="___clone">
+
+		<td class="attributes"><code>
+			final public 
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___clone">#</a>
+		<code><a href="source-class-GAubry.Enum.EnumAbstract.html#175-183" title="Go to source code">__clone</a>( )</code>
+
+		<div class="description short">
+			
+<p>Prevent cloning.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Prevent cloning.</p>
+
+
+
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code>RuntimeException</code><br>Cloning of this object isn't authorized!<br />
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="iCounter" id="$iCounter">
+		<td class="attributes"><code>
+			private static 
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-GAubry.Enum.EnumAbstract.html#47-51" title="Go to source code"><var>$iCounter</var></a>
+		</td>
+		<td class="value"><code><span class="php-num">0</span></code></td>
+		<td class="description"><div>
+			<a href="#$iCounter" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Global static counter to ensure that each EnumAbstract instance is
+unique.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Global static counter to ensure that each EnumAbstract instance is
+unique.</p>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="aCache" id="$aCache">
+		<td class="attributes"><code>
+			private static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-GAubry.Enum.EnumAbstract.html#53-65" title="Go to source code"><var>$aCache</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>()</code></td>
+		<td class="description"><div>
+			<a href="#$aCache" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>A cache of all enum values to increase performance. Structure:</p>
+
+<pre><span class="php-keyword1">array</span>(
+    <span
+class="php-quote">'class'</span> =&gt; <span
+class="php-keyword1">array</span>(
+        <span
+class="php-quote">'key'</span> =&gt; EnumAbstract instance,
+        …
+    ),
+    …
+)</pre>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A cache of all enum values to increase performance. Structure:</p>
+
+<pre><span class="php-keyword1">array</span>(
+    <span
+class="php-quote">'class'</span> =&gt; <span
+class="php-keyword1">array</span>(
+        <span
+class="php-quote">'key'</span> =&gt; EnumAbstract instance,
+        …
+    ),
+    …
+)</pre>
+
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="iValue" id="$iValue">
+		<td class="attributes"><code>
+			private  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-GAubry.Enum.EnumAbstract.html#67-72" title="Go to source code"><var>$iValue</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$iValue" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>A unique value to ensure that each EnumAbstract instance is unique.</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>A unique value to ensure that each EnumAbstract instance is unique.</p>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-GAubry.Enum.EnumAbstract.html#$iCounter">GAubry\Enum\EnumAbstract::<var>$iCounter</var></a></code></code><br />
+					</div>
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="sName" id="$sName">
+		<td class="attributes"><code>
+			private  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-GAubry.Enum.EnumAbstract.html#74-79" title="Go to source code"><var>$sName</var></a>
+		</td>
+		<td class="value"><code></code></td>
+		<td class="description"><div>
+			<a href="#$sName" class="anchor">#</a>
+
+			<div class="description short">
+				
+<p>Name of enum instance, used by __toString().</p>
+
+			</div>
+
+			<div class="description detailed hidden">
+				
+<p>Name of enum instance, used by __toString().</p>
+
+
+					<h4>See</h4>
+					<div class="list">
+							<code><code><a href="class-GAubry.Enum.EnumAbstract.html#___toString">GAubry\Enum\EnumAbstract::__toString()</a></code></code><br />
+					</div>
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		Type-safe PHP Enum API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>
