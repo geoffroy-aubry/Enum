@@ -1,5 +1,9 @@
 # PHP Enum
 
+[![Latest stable version](https://poser.pugx.org/geoffroy-aubry/Enum/v/stable.png "Latest stable version")](https://packagist.org/packages/geoffroy-aubry/Enum)
+[![Build Status](https://secure.travis-ci.org/geoffroy-aubry/Enum.png?branch=stable)](http://travis-ci.org/geoffroy-aubry/Enum)
+[![Coverage Status](https://coveralls.io/repos/geoffroy-aubry/Enum/badge.png?branch=stable)](https://coveralls.io/r/geoffroy-aubry/Enum)
+
 This is a simple-to-use PHP class that provides the ability to emulate and create type-safe enumerations.
 
 ## Table of Contents
