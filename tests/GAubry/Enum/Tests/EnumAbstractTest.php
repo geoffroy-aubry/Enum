@@ -109,11 +109,6 @@ class EnumAbstractTest extends \PHPUnit_Framework_TestCase
             $aInstances[] = serialize($oEnum);
         }
 
-        $oProperty = new \ReflectionProperty('\GAubry\Enum\EnumAbstract', 'iValue');
-        $oProperty->setAccessible(true);
-        $this->assertEquals(0, $oProperty->getValue($aValues['MONDAY']));
-        $this->assertEquals(1, $oProperty->getValue($aValues['TUESDAY']));
-
         $oProperty = new \ReflectionProperty('\GAubry\Enum\EnumAbstract', 'sName');
         $oProperty->setAccessible(true);
         $this->assertEquals('MONDAY', $oProperty->getValue($aValues['MONDAY']));
@@ -142,6 +137,24 @@ class EnumAbstractTest extends \PHPUnit_Framework_TestCase
                 $this->assertTrue($sKey1 != $sKey2 || $oEnum1 === $oEnum2);
             }
         }
+    }
+
+    /**
+     * @covers \GAubry\Enum\EnumAbstract::buildInstances
+     * @covers \GAubry\Enum\EnumAbstract::__construct
+     */
+    public function testNotEquality ()
+    {
+        ColorEnum::buildInstances();
+        DayEnum::buildInstances();
+
+        $this->assertEquals((string)ColorEnum::$BLUE, 1);
+        $this->assertEquals((string)DayEnum::$THURSDAY, 1);
+        $this->assertNotEquals(DayEnum::$THURSDAY, ColorEnum::$BLUE);
+
+        $this->assertEquals((string)DayEnum::$TUESDAY, 'TUESDAY');
+        $this->assertEquals((string)DayEnum::$WEDNESDAY, 'TUESDAY');
+        $this->assertNotEquals(DayEnum::$TUESDAY, DayEnum::$WEDNESDAY);
     }
 
     public function testEnumConstantsBeforeBuild ()

@@ -8,5 +8,5 @@ class ColorEnum extends EnumAbstract
 {
     public static $RED;
     public static $GREEN;
-    public static $BLUE;
+    public static $BLUE = 1;
 }
